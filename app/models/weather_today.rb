@@ -1,0 +1,2 @@
+class WeatherToday < ApplicationRecord
+end
