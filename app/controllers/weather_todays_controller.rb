@@ -34,6 +34,10 @@ class WeatherTodaysController < ApplicationController
         end
     end
 
+    def destroy
+    
+    end
+
     private
     def weather_today_params
         params.require(:weather_today).permit(:location, :describe, :temperature, :humidity, :wind_direction)
