@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_091255) do
   enable_extension "plpgsql"
 
   create_table "weather_todays", force: :cascade do |t|
+    t.string "location"
     t.string "describe"
     t.string "temperature"
     t.string "humidity"

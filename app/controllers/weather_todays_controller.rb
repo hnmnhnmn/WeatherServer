@@ -4,7 +4,7 @@ class WeatherTodaysController < ApplicationController
         @count = 0
         @weathers.each do |weather|
             @weather = weather
-            if @weather.created_at.beginning_of_day >= Time.now.beginning_of_day
+            if @weather.created_at.beginning_of_day >= Time.now.beginning_of_day && @weather.location == params[:location]
                 @count += 1
                 render "show", status: :ok
             end
@@ -36,6 +36,6 @@ class WeatherTodaysController < ApplicationController
 
     private
     def weather_today_params
-        params.require(:weather_today).permit(:describe, :temperature, :humidity, :wind_direction)
+        params.require(:weather_today).permit(:location, :describe, :temperature, :humidity, :wind_direction)
     end
 end
