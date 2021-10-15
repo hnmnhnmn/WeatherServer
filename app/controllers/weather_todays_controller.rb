@@ -10,7 +10,7 @@ class WeatherTodaysController < ApplicationController
             end
         end
         if @count == 0
-            render json: "Message: Can't find weather today"
+            render json: {Message: "can't find weather today"}, status: :ok
         end
     end
 
@@ -20,7 +20,7 @@ class WeatherTodaysController < ApplicationController
         @weathers.each do |weather|
             @weather = weather
             if @weather.created_at.beginning_of_day >= Time.now.beginning_of_day
-                render json: "Message: weather today have added", status: :ok
+                render json: {Message: "weather today have added"}, status: :ok
                 @count += 1
             end
         end
